@@ -1,2 +1,2 @@
-# CS50
+# CS50-TinyML
 Harvard TinyML course coding exercises
