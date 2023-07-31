@@ -13,6 +13,7 @@ if sys.version_info.major < 3:
     raise Exception((f"The script is developed and tested for Python 3. "
                      f"Current version: {sys.version_info.major}"))
 
+# First lets re-train our original single layer network and see what the prediction is for X = 10.0 and what the learned weights are
 
 my_layer = keras.layers.Dense(units=1, input_shape=[1])
 model = tf.keras.Sequential([my_layer])
@@ -26,6 +27,8 @@ model.fit(xs, ys, epochs=500)
 print(model.predict([10.0]))
 
 print(my_layer.get_weights())
+
+# Next lets train a 2-layer network and see what its prediction and weights are
 
 my_layer_1 = keras.layers.Dense(units=2, input_shape=[1])
 my_layer_2 = keras.layers.Dense(units=1)
@@ -41,6 +44,8 @@ print(model.predict([10.0]))
 print(my_layer_1.get_weights())
 print(my_layer_2.get_weights())
 
+
+# Finally we can manually compute the output for our 2-layer network to better understand how it works
 value_to_predict = 10.0
 
 layer1_w1 = (my_layer_1.get_weights()[0][0][0])
